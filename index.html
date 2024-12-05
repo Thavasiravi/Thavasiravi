@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <style>
+        /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #2c3e50;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar .logo a {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #f39c12;
+}
+
+/* Home Section */
+.home {
+    background: #1abc9c;
+    color: #fff;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.home p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-main {
+    background-color: #f39c12;
+    padding: 12px 30px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-main:hover {
+    background-color: #e67e22;
+}
+
+/* Section Styling */
+.section {
+    padding: 60px 20px;
+    margin-top: 100px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.projects {
+    background-color: #ecf0f1;
+}
+
+.project-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill-card {
+    background-color: #3498db;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 18px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: scale(1.1);
+}
+
+/* Contact Section */
+.contact {
+    background-color: #f39c12;
+    color: #fff;
+    text-align: center;
+}
+
+.contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact ul li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-cards {
+        flex-direction: column;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    .skills-list {
+        flex-direction: column;
+    }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#home">My Portfolio</a>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#certification">Certification & Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section home">
+        <div class="content">
+            <h1>Welcome to My Professional Portfolio</h1>
+            <p>I am a passionate developer and designer. Explore my work, skills, and experiences below.</p>
+            <a href="#projects" class="btn-main">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Certification & Education Section -->
+    <section id="certification" class="section">
+        <h2>Certification & Education</h2>
+        <ul>
+            <li>Certificate in Web Development - XYZ Institute</li>
+            <li>Bachelor's Degree in Computer Science - ABC University</li>
+        </ul>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <h2>Experience</h2>
+        <p>Here are some of the places I've worked and my role:</p>
+        <ul>
+            <li><strong>Software Developer</strong> at XYZ Company (2020 - Present)</li>
+            <li><strong>Web Designer</strong> at ABC Inc. (2018 - 2020)</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <h3>Personal Portfolio</h3>
+                <p>A personal portfolio website to showcase my skills and work.</p>
+            </div>
+            <div class="project-card">
+                <h3>Online Shopping Cart</h3>
+                <p>An e-commerce shopping cart system built using React and Node.js.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill-card">HTML</div>
+            <div class="skill-card">CSS</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">React</div>
+            <div class="skill-card">Node.js</div>
+            <div class="skill-card">Python</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out for any inquiries or collaboration opportunities:</p>
+        <ul>
+            <li>Email: example@example.com</li>
+            <li>Phone: 123-456-7890</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 My Professional Portfolio. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
