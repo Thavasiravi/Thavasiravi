@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }   
+        }
 
         body {
             font-family: 'Roboto', sans-serif;
@@ -24,7 +24,7 @@
             background-color: #2c3e50;
             padding: 20px;
             display: flex;
-            justify-content: flex-start; /* Align items to the left */
+            justify-content: space-between;
             align-items: center;
             position: fixed;
             top: 0;
@@ -33,16 +33,20 @@
             z-index: 100;
         }
 
+        .navbar .logo {
+            flex-grow: 1;
+            text-align: center;
+        }
+
         .navbar .logo a {
             color: #fff;
             font-size: 24px;
             font-weight: 500;
             text-decoration: none;
-            margin-right: 20px;
         }
 
         .navbar .hamburger {
-            display: flex;
+            display: none;
             flex-direction: column;
             cursor: pointer;
         }
@@ -58,7 +62,6 @@
         .navbar ul {
             list-style-type: none;
             display: flex;
-            margin-left: auto;
             transition: transform 0.3s ease;
         }
 
@@ -91,14 +94,8 @@
             transform: translateX(0); /* Slide in */
         }
 
-        .navbar ul {
-            position: absolute;
-            top: 0;
-            left: -100%; /* Initially hidden off-screen */
-        }
-
-        .navbar .hamburger {
-            margin-left: 20px;
+        .navbar ul.inactive {
+            display: none;
         }
 
         /* Home Section */
@@ -299,6 +296,21 @@
             .project-card {
                 width: 100%;
             }
+
+            .navbar {
+                justify-content: space-between;
+            }
+
+            .navbar .logo {
+                order: 1;
+                flex-grow: 1;
+                text-align: center;
+            }
+
+            .navbar .hamburger {
+                order: 0;
+                margin-right: auto;
+            }
         }
 
         @media (max-width: 480px) {
@@ -343,21 +355,30 @@
             const navLinks = document.querySelector('.navbar ul');
             navLinks.classList.toggle('active');
         }
+
+        // Close the menu when clicking outside of it
+        window.addEventListener('click', function(e) {
+            const navLinks = document.querySelector('.navbar ul');
+            const hamburger = document.querySelector('.hamburger');
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
     </script>
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">
-            <a href="#home">Thavasi R</a>
-        </div>
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
-        <ul>
+        <div class="logo">
+            <a href="#home">Thavasi R</a>
+        </div>
+        <ul class="inactive">
             <li><a href="#home">Home</a></li>
             <li><a href="#certification">Certification & Education</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -368,32 +389,38 @@
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="section home">
-        <div class="content">
-            <div class="profile-img">
-                <img src="./Thavasi.jpeg" alt="Thavasi R">
-            </div>
-            <h1>Welcome to My Portfolio</h1>
-            <p>Geoinformatics Engineer with expertise in drone technology and GIS analysis.</p>
-            <a href="#contact" class="btn-main">Get in Touch</a>
+    <section id="home" class="home">
+        <div class="profile-img">
+            <img src="profile.jpg" alt="Thavasi R" onclick="toggleZoom()">
         </div>
+        <h1>Thavasi R</h1>
+        <p>Geoinformatics Engineer | Drone Specialist | GIS Expert</p>
+        <a href="#contact" class="btn-main">Contact Me</a>
     </section>
 
-    <!-- Certification & Education Section -->
+    <!-- Certification and Education Section -->
     <section id="certification" class="section">
         <h2>Certification & Education</h2>
         <div class="details">
             <div class="detail">
-                <h3>Certification</h3>
+                <h3>Bachelor's in Geoinformatics</h3>
                 <ul>
-                    <li>Drone Aerodynamics, Assembling, and Testing</li>
-                    <li>Image Processing and Photogrammetry</li>
+                    <li>Anna University Regional Campus Tirunelveli</li>
+                    <li>Graduated: 2024</li>
                 </ul>
             </div>
             <div class="detail">
-                <h3>Education</h3>
+                <h3>Training in Drone Aerodynamics</h3>
                 <ul>
-                    <li>Bachelor of Engineering in Geoinformatics - Anna University Regional Campus Tirunelveli</li>
+                    <li>National Skill Training Institute, Chennai</li>
+                    <li>Completed: 2024</li>
+                </ul>
+            </div>
+            <div class="detail">
+                <h3>Training in Image Processing</h3>
+                <ul>
+                    <li>Ocean Square, Chennai</li>
+                    <li>Completed: 2024</li>
                 </ul>
             </div>
         </div>
@@ -404,10 +431,12 @@
         <h2>Experience</h2>
         <div class="details">
             <div class="detail">
-                <h3>Intern - Ecometric Consultant Private Limited</h3>
+                <h3>Ecometric Consultant Private Limited</h3>
                 <ul>
                     <li>Analyzed consumer data and performed quality checks</li>
-                    <li>Engaged in image processing and mapping tasks</li>
+                    <li>Engaged in image processing and mapping</li>
+                    <li>Conducted water network and demand analysis</li>
+                    <li>Internship completed: 2024</li>
                 </ul>
             </div>
         </div>
@@ -418,12 +447,12 @@
         <h2>Projects</h2>
         <div class="project-cards">
             <div class="project-card">
-                <h3>Drone Aerodynamics</h3>
-                <p>Developed a drone to collect high-resolution aerial images.</p>
+                <h3>Project 1</h3>
+                <p>Description of the first project, including technologies used and outcomes achieved.</p>
             </div>
             <div class="project-card">
-                <h3>Water Network Analysis</h3>
-                <p>Analyzed the efficiency of water networks in urban areas.</p>
+                <h3>Project 2</h3>
+                <p>Description of the second project, including technologies used and outcomes achieved.</p>
             </div>
         </div>
     </section>
@@ -432,29 +461,33 @@
     <section id="skills" class="section">
         <h2>Skills</h2>
         <div class="skills-list">
-            <div class="skill-card">ArcGIS</div>
-            <div class="skill-card">QGIS</div>
-            <div class="skill-card">ERDAS IMAGINE</div>
-            <div class="skill-card">Python</div>
-            <div class="skill-card">Drone Operations</div>
+            <div class="skill-card">GIS</div>
+            <div class="skill-card">Drone Technology</div>
+            <div class="skill-card">Image Processing</div>
+            <div class="skill-card">Data Analysis</div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section contact">
         <h2>Contact</h2>
-        <div class="contact">
-            <ul>
-                <li>Email: <a href="mailto:thavasir99@gmail.com">thavasir99@gmail.com</a></li>
-                <li>Phone: <a href="tel:+918300796006">+91 8300796006</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/thavasir">linkedin.com/in/thavasir</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li>Email: <a href="mailto:thavasi@example.com">thavasi@example.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/thavasi">linkedin.com/in/thavasi</a></li>
+            <li>Phone: +91 1234567890</li>
+        </ul>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Thavasi R. All Rights Reserved.</p>
+        <p>&copy; 2025 Thavasi R. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleZoom() {
+            const img = document.querySelector('.profile-img img');
+            img.classList.toggle('zoomed');
+        }
+    </script>
 </body>
 </html>
